@@ -1,0 +1,32 @@
+Bootstrap: docker
+From: ubuntu:22.04
+
+%labels
+Maintainer Zahra Gamiet
+Description Trimmomatic tool for pipeline assignment 
+
+%environment
+export PATH=/opt/bin:$PATH
+export LANG=C.UTF-8
+export LC_ALL=C.UTF-8
+
+%post
+apt-get -y update
+apt-get install -y build-essential
+apt-get install -y wget
+apt-get install -y default-jre
+apt-get install -y unzip
+
+cd /opt
+
+wget http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.39.zip
+unzip Trimmomatic-0.39.zip
+rm Trimmomatic-0.39.zip
+
+chmod +x /opt/Trimmomatic-0.39/trimmomatic-0.39.jar
+
+mkdir -p /opt/trimmomatic/adapters
+gp /opt/Trimmomatic-0.39/adapters/TruSeq3-PE.fa /opt/trimmomatic/adapters/
+
+%runscript
+java -jar /opt/Trimmomatic-0.39/trimmomatic-0.39.jar
