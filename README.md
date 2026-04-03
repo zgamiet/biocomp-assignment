@@ -36,3 +36,12 @@ The generated index and pipeline output files were used to visualize a variant o
 **Database structure**
 
 Data was first selected and sorted by columns of interest (chromosome (chrom), position (pos), reference allele (ref), alternative allele (alt) and quality (qual)). This information was extracted and then put into a table title 'vcf_data' in the SQLite3 database 'variants.db'. 
+
+The following command was used to create table 'vcf_data' in SQLite3: <br>
+> CREATE TABLE vcf_data ( <br>
+    chrom TEXT, <br>
+    pos INTEGER, <br>
+    ref TEXT, <br>
+    alt TEXT, <br>
+    qual FLOAT <br>
+); <br>
