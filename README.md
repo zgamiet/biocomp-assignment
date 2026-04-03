@@ -18,7 +18,7 @@ This pipeline features five process; Fastqc, Trimmomatic, BWA, SAM to Bam and Va
 The trim.sif image was used to perform the trimming of reads whereas with the other processes, the bio modules (fastqc, bwa, samtools and bcftools) were used. 
 Example read data (SRR061646_SML) was supplied during coursework and alignment was done against a chromosome 19 reference (chr19.fa). 
 
-The pipeline was performed with the following command: <br>
+Important modules needed to be loaded for the pipeline to run successfully are in the run_pipe file. The pipeline was performed with the following command: <br>
 > ./run_pipe
 
 Using the VCF file, the SNP variant at location chr19:90526 was selected for viewing. A subset of the BAM file was then created by obtaining the region flanking the variant of interest. The following commands were used in the terminal to achieve this:
