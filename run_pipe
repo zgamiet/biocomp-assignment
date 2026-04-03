@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+module load singularity
+module load fastqc
+module load bwa
+module load samtools
+module load bcftools
+
+./nextflow run -profile local main.nf
