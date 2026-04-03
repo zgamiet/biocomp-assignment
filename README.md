@@ -6,7 +6,8 @@ A singularity definition file that installs and runs Trimmomatic was created, la
 
 The definition file (trim.def) pulls the trimmomatic file for Illumina NGS data from usadellab.org. The file contains the trimming tool as well as adapter information so that there is quality trimming and adapter clipping of sequencing reads. The trimmomatic tool offered by usadellab.org requires java to execute the trimmomatic-0.39.jar file. 
 
-A singularity image (trim.sif) was created from the definition file using -fakeroot.
+A singularity image was created from the definition file using the following command: <br>
+> singularity build --fakeroot trim.sif trim.def
 
 ***
 **Nextflow pipeline**
@@ -22,10 +23,11 @@ Using the VCF file, the SNP variant at location chr19:90526 was selected for vie
 > samtools view -b SRR061646_SML.bam 19:90426-90626 > subset.bam <br>
 > samtools index subset.bam <br>
 
-Index and pipleine output files were used to visualize a variant of interest in Integrative Genomics Viewer (IGV).
+The generated index and pipeline output files were used to visualize a variant of interest in Integrative Genomics Viewer (IGV). The following is a snapshot of the variant centered in IGV with variant information:
 
-<img width="1348" height="901" alt="Screenshot (55)" src="https://github.com/user-attachments/assets/5282b5af-5b50-4a39-9fe4-05bbcf0a9781" />
-Figure 1. Selected SNP variant viewed in IGV. 
+<img width="1694" height="1121" alt="Screenshot (54)" src="https://github.com/user-attachments/assets/962b43f2-330e-4822-90b1-628c649a9ce1" />
+
+
 
 ***
 **Database structure**
